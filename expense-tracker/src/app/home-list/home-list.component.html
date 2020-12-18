@@ -20,45 +20,98 @@
                 <h4 id="balanceAmount" class="card-title">{{balanceAmount}}</h4>
                 <h6 id="balanceText" class="card-subtitle mb-2 text-muted">Balance Amount</h6>
                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                <div class="container">
+                <!-- <div class="container">
                   Place for SVG for pie chart
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="container">
         <div class="row">
           <div class="container">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Category</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let transaction of transactions;" (click)="selectTransaction(transaction)"
-                [class.active]="transaction === selectedTransaction">
-                <td>
-                  {{transaction.category}}
-                </td>
-                <td>
-                  {{transaction.amount}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="btn btn-warning" (click)="createNewTransaction()">New</button>
-        </div>
+            <div class="card">
+              <div class="card-body">
+                <h4 id="balanceAmount" class="card-title">{{incomeAmount}}</h4>
+                <h6 id="balanceText" class="card-subtitle mb-2 text-muted">Income Amount</h6>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <!-- <div class="container">
+                  Place for SVG for pie chart
+                </div> -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="col-md-5">
+    <div class="col-md-4">
       <div class="container">
         <div class="row">
-          <app-details-page [transaction]="selectedTransaction" [createHandler]="addTransaction" [updateHandler]="updateTransaction"
-            [deleteHandler]="deleteTransaction"></app-details-page>
+          <div class="container">
+            <div class="card">
+              <div class="card-body">
+                <h4 id="balanceAmount" class="card-title">{{expenseAmount}}</h4>
+                <h6 id="balanceText" class="card-subtitle mb-2 text-muted">Expense Amount</h6>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <!-- <div class="container">
+                  Place for SVG for pie chart
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12" id="spacer" style="margin: 80px 0;">
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="container">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions;" (click)="selectTransaction(transaction)"
+              [class.active]="transaction === selectedTransaction">
+              <td>
+                {{transaction.category}}
+              </td>
+              <td>
+                {{transaction.description}}
+              </td>
+              <td>
+                {{transaction.date}}
+              </td>
+              <td>
+                {{transaction.amount}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-warning" (click)="createNewTransaction()">New</button>
+      </div>
+    </div>
+
+    <!-- </div>
+    </div> -->
+
+    <div class="col-md-6">
+      <div class="container">
+        <div class="row">
+          <app-details-page [transaction]="selectedTransaction" [createHandler]="addTransaction"
+            [updateHandler]="updateTransaction" [deleteHandler]="deleteTransaction"></app-details-page>
         </div>
       </div>
     </div>
@@ -68,4 +121,4 @@
     </div> -->
 
   </div>
-</div>
+  <!-- </div> -->

@@ -27,6 +27,22 @@ export class TransactionServiceService {
     .catch(this.handleError);
   }
 
+  //Get Income
+  getIncomeAmount(): Promise<void | Number>{
+    return this.http.get('http://localhost:3000/api/getIncome')
+    .toPromise()
+    .then(response => response as Number)
+    .catch(this.handleError);
+  }
+
+  //Get Expense
+  getExpenseAmount(): Promise<void | Number>{
+    return this.http.get('http://localhost:3000/api/getExpense')
+    .toPromise()
+    .then(response => response as Number)
+    .catch(this.handleError);
+  }
+
   //Get Single
   getSingleTransaction(transactionId: string): Promise<void | Transaction> {
     return this.http.get(this.transactionsUrl + '/' + transactionId)

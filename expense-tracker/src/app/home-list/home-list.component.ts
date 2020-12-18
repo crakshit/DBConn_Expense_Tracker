@@ -14,6 +14,8 @@ export class HomeListComponent implements OnInit {
   transactions: Transaction[]
   selectedTransaction: Transaction
   balanceAmount: Number
+  incomeAmount: Number
+  expenseAmount: Number
 
   constructor(private transactionService: TransactionServiceService) { }
 
@@ -26,11 +28,25 @@ export class HomeListComponent implements OnInit {
         });
       });
       this.balanceAmount = 0.00;
+      this.incomeAmount = 0.00;
+      this.expenseAmount = 0.00;
 
       this.transactionService
       .getBalanceAmount()
       .then((balanceAmount: Number) => {
         this.balanceAmount = balanceAmount;
+      });
+
+      this.transactionService
+      .getIncomeAmount()
+      .then((incomeAmount: Number) => {
+        this.incomeAmount = incomeAmount;
+      });
+
+      this.transactionService
+      .getExpenseAmount()
+      .then((expenseAmount: Number) => {
+        this.expenseAmount = expenseAmount;
       });
   }
 
