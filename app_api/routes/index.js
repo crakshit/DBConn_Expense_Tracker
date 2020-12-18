@@ -20,6 +20,13 @@ router
     .get(ctrlTransaction.getBalance);
 
 router
+    .route('/getIncome')
+    .get(ctrlTransaction.getIncome);
+router
+    .route('/getExpense')
+    .get(ctrlTransaction.getExpense);
+
+router
     .route('/category')
     .get(ctrlCategory.getCategories)
     .post(ctrlCategory.createCategory);

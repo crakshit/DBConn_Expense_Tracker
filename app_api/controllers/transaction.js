@@ -24,7 +24,6 @@ module.exports.getBalance = function (req, res) {
                 .json(err);
             return;
         }
-        //console.log(data);
         for (transaction in data){
             // console.log("Transaction:");
             // console.log(data[transaction].type);
@@ -40,6 +39,62 @@ module.exports.getBalance = function (req, res) {
             //console.log(data);
             .status(200)
             .json(balance);
+    });
+};
+
+module.exports.getIncome = function (req, res) {
+    var income = 0;
+    Transaction.find().exec(function (err, data) {
+        if (err) {
+            res
+                .status(404)
+                .json(err);
+            return;
+        }
+        for (transaction in data){
+            // console.log("Transaction:");
+            // console.log(data[transaction].type);
+            if(data[transaction].type === "income"){
+                //console.log(data[transaction].amount);
+                income += data[transaction].amount;
+            } 
+            // else if(data[transaction].type === "expense"){
+            //     balance -= data[transaction].amount;
+            // }
+        }
+        //console.log(balance);
+        res
+            //console.log(data);
+            .status(200)
+            .json(income);
+    });
+};
+
+module.exports.getExpense = function (req, res) {
+    var expense = 0;
+    Transaction.find().exec(function (err, data) {
+        if (err) {
+            res
+                .status(404)
+                .json(err);
+            return;
+        }
+        for (transaction in data){
+            // console.log("Transaction:");
+            // console.log(data[transaction].type);
+            if(data[transaction].type === "expense"){
+                //console.log(data[transaction].amount);
+                expense += data[transaction].amount;
+            } 
+            // else if(data[transaction].type === "expense"){
+            //     balance -= data[transaction].amount;
+            // }
+        }
+        //console.log(balance);
+        res
+            //console.log(data);
+            .status(200)
+            .json(expense);
     });
 };
 
