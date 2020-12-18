@@ -16,6 +16,7 @@ export class HomeListComponent implements OnInit {
   balanceAmount: Number
   incomeAmount: Number
   expenseAmount: Number
+  transactionsJSON: JSON
 
   constructor(private transactionService: TransactionServiceService) { }
 
@@ -48,6 +49,15 @@ export class HomeListComponent implements OnInit {
       .then((expenseAmount: Number) => {
         this.expenseAmount = expenseAmount;
       });
+
+      this.transactionService
+      .getTransactionsJSON()
+      .then((transactionsJSON: JSON) => {
+        //console.log(transactionsJSON);
+        this.transactionsJSON = transactionsJSON;
+      });
+      console.log(this.transactionsJSON);
+      console.log(this.balanceAmount);
   }
 
   private getIndexofTransaction = (transactionId: String) => {
@@ -81,11 +91,21 @@ export class HomeListComponent implements OnInit {
       this.selectTransaction(null);
     }
 
-    this.transactionService
-      .getBalanceAmount()
-      .then((balanceAmount: Number) => {
-        this.balanceAmount = balanceAmount;
-      });
+    // this.transactionService
+    //   .getTransactions()
+    //   .then((transactions: Transaction[]) => {
+    //     this.transactions = transactions.map(transaction => {
+    //       return transaction;
+    //     });
+    //   });
+    this.ngOnInit();
+    this.selectTransaction(null);
+
+    // this.transactionService
+    //   .getBalanceAmount()
+    //   .then((balanceAmount: Number) => {
+    //     this.balanceAmount = balanceAmount;
+    //   });
 
     return this.transactions;
   }

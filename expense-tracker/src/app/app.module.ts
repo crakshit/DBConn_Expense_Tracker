@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { CategoryDetailsPageComponent } from './category-details-page/category-details-page.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryComponent } from './category/category.component';
+import { PieComponent } from './pie/pie.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { CategoryComponent } from './category/category.component';
     DetailsPageComponent,
     CategoryDetailsPageComponent,
     CategoryListComponent,
-    CategoryComponent
+    CategoryComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { CategoryComponent } from './category/category.component';
       //   path: 'coffees/:coffeeid',
       //   component: DetailsPageComponent
       // }
-    ])
+    ]),
+    BrowserAnimationsModule,
+    NgbModule
   ],
   //providers: [],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],

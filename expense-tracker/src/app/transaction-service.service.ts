@@ -19,6 +19,14 @@ export class TransactionServiceService {
       .catch(this.handleError);
   }
 
+  //Get All JSON
+  getTransactionsJSON(): Promise<void | JSON> {
+    return this.http.get(this.transactionsUrl)
+      .toPromise()
+      .then(response => response as JSON)
+      .catch(this.handleError);
+  }
+
   //Get Balance
   getBalanceAmount(): Promise<void | Number>{
     return this.http.get('http://localhost:3000/api/getBalance')
