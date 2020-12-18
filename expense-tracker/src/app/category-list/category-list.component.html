@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories;" (click)="selectCategory(category)"
+                [class.active]="category === selectedCategory">
+                <td>
+                    {{category.category}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="createNewCategory()">New</button>
+</div>
+<div class="container">
+    <div class="row">
+        <app-category-details-page [category]="selectedCategory" [createHandler]="addCategory"
+            [updateHandler]="updateCategory" [deleteHandler]="deleteCategory"></app-category-details-page>
+    </div>
+</div>

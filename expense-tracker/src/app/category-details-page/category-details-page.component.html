@@ -1,0 +1,21 @@
+<div class="container">
+<div *ngIf="category" class="col-md-12">
+    <h5 *ngIf="category._id">Category Details</h5>
+    <h5 *ngIf="!category._id">Add New category</h5>
+</div>
+  
+  <form *ngIf="category">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="flacategoryvours">Category</label>
+        <input [(ngModel)]="categorycategory" class="form-control" id="category" name="category" required="required">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" *ngIf="!category._id" (click)="createCategory(category)">Create</button>
+    <button class="btn btn-info" *ngIf="category._id" (click)="updateCategory(category)">Update</button>
+    <button class="btn btn-danger" *ngIf="category._id" (click)="deleteCategory(category._id)">Delete</button>
+  
+    <!-- <button type="submit" class="btn btn-primary">Create</button> -->
+  </form>
+  </div>

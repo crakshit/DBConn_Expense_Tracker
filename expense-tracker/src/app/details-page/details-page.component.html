@@ -1,0 +1,41 @@
+<div *ngIf="transaction" class="col-md-12">
+  <h2 *ngIf="transaction._id">transaction Details</h2>
+  <h2 *ngIf="!transaction._id">Add New transaction</h2>
+</div>
+
+<form *ngIf="transaction">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="type">Type</label>
+      <select [(ngModel)]="transaction.type" class="form-control" id="type" name="type" required="required">
+        <option>income</option>
+        <option>expense</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="flacategoryvours">Category</label>
+      <input [(ngModel)]="transaction.category" class="form-control" id="category" name="category" required="required">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="date">Date</label>
+      <input [(ngModel)]="transaction.date" class="form-control" id="date" name="date" required="required">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <label for="description">Description</label>
+      <input [(ngModel)]="transaction.description" class="form-control" id="description" name="description"
+        required="required">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="amount">Amount</label>
+      <input [(ngModel)]="transaction.amount" id="amount" class="form-control" name="amount" required="required">
+    </div>
+  </div>
+
+  <button class="btn btn-primary" *ngIf="!transaction._id" (click)="createTransaction(transaction)">Create</button>
+  <button class="btn btn-info" *ngIf="transaction._id" (click)="updateTransaction(transaction)">Update</button>
+  <button class="btn btn-danger" *ngIf="transaction._id" (click)="deleteTransaction(transaction._id)">Delete</button>
+
+  <!-- <button type="submit" class="btn btn-primary">Create</button> -->
+</form>

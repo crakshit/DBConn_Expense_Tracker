@@ -1,0 +1,13 @@
+/* style in homelist */
+app-details-page {
+    width: 100%;
+}
+
+#balanceAmount {
+    text-align: center;
+    font-size: 3em;
+}
+
+#balanceText{
+    text-align: center;
+}
