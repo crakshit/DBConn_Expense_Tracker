@@ -28,6 +28,7 @@ export class CategoryDetailsPageComponent {
   
   createCategory(category: Category) {
     this.categorySerive.createCategory(category).then((newCategory: Category) => {
+      console.log(newCategory);
       this.createHandler(newCategory);
     });
   }

@@ -16,6 +16,7 @@ import { DetailsPageComponent } from './details-page/details-page.component';
 import { FormsModule } from '@angular/forms';
 import { CategoryDetailsPageComponent } from './category-details-page/category-details-page.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
     //CreateComponent,
     DetailsPageComponent,
     CategoryDetailsPageComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,10 @@ import { CategoryListComponent } from './category-list/category-list.component';
     RouterModule.forRoot([{
       path: '',
       component: HomeListComponent
+    },
+    {
+      path: 'category',
+      component: CategoryComponent
     },
     {
       path: 'about',

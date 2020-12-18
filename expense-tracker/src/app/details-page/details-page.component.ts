@@ -4,6 +4,8 @@ import { Transaction } from '../transaction';
 import { TransactionServiceService } from '../transaction-service.service';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Category } from '../category';
+import { CategoryServiceService } from '../category-service.service';
 
 @Component({
   selector: 'app-details-page',
@@ -23,8 +25,19 @@ export class DetailsPageComponent {
   @Input()
   deleteHandler: Function;
 
-  constructor(private transactionSerive: TransactionServiceService, private route: ActivatedRoute) { }
+  categories: Category[]
 
+  constructor(private transactionSerive: TransactionServiceService, private route: ActivatedRoute, private categoryService: CategoryServiceService) { }
+
+  ngOnInit(): void {
+    this.categoryService
+      .getCategories()
+      .then((categories: Category[]) => {
+        this.categories = categories.map(category => {
+          return category;
+        });
+      });
+  }
   
   createTransaction(transaction: Transaction) {
     this.transactionSerive.createTransaction(transaction).then((newTransaction: Transaction) => {

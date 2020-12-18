@@ -14,7 +14,13 @@
     </div>
     <div class="form-group col-md-4">
       <label for="flacategoryvours">Category</label>
-      <input [(ngModel)]="transaction.category" class="form-control" id="category" name="category" required="required">
+      <select [(ngModel)]="transaction.category" class="form-control" id="category"
+        name="category" id="exampleFormControlSelect1">
+        <option *ngFor="let category of categories;">
+          {{category.category}}
+        </option>
+      </select>
+      <!-- <input [(ngModel)]="transaction.category" class="form-control" id="category" name="category" required="required"> -->
     </div>
     <div class="form-group col-md-4">
       <label for="date">Date</label>
