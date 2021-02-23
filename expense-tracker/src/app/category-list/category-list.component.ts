@@ -52,6 +52,8 @@ export class CategoryListComponent implements OnInit {
       this.categories.splice(idx, 1);
       this.selectCategory(null);
     }
+    this.ngOnInit();
+    this.selectCategory(null);
     return this.categories;
   }
 
